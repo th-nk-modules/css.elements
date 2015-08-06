@@ -5,7 +5,7 @@ Styleguide 0.3
 */
 $fh-font-color					:$core-body-copy-color !default;
 
-$fh-invalid-border-color		:$clr-danger !default;
+$fh-invalid-border-color		:$clr-error !default;
 $fh-valid-border-color			:$clr-success !default;
 
 $fh-border-radius				:0 !default;
@@ -192,6 +192,8 @@ input[aria-invalid="false"]
 {
 	border-color				:$fh-valid-border-color;
 }
+
+$cursor-disabled				:not-allowed;
 
 select,
 textarea,
@@ -751,7 +753,7 @@ Markup:
 	<output for="flying" onforminput="value = flying.valueAsNumber">0</output>
 </form>
 
-Styleguide 0.3.9
+Styleguide 0.0.x
 */
 output
 {
@@ -769,7 +771,7 @@ Markup:
 	<input type="submit" value="Submit">
 </form>
 
-Styleguide 0.3.10
+Styleguide 0.3.9
 */
 keygen
 {

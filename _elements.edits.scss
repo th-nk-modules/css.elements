@@ -11,13 +11,13 @@ del
 The del element represents a removal from the document. Thedel elements should not cross implied paragraph boundaries
 
 Markup:
-<del>del</del>
+<p><del>This text is deleted</del></p>
 
 Styleguide 0.1.1
 */
 del
 {
-
+	color:$clr-error;
 }
 
 /*
@@ -32,5 +32,5 @@ Styleguide 0.1.2
 */
 ins
 {
-
+	color:$clr-success;
 }
