@@ -1,3 +1,8 @@
+/*
+Forms
+
+Styleguide 0.3
+*/
 $fh-font-color					:$core-body-copy-color !default;
 
 $fh-invalid-border-color		:$clr-danger !default;
@@ -96,7 +101,7 @@ Markup:
 	</fieldset>
 </form>
 
-Styleguide 0.3.11
+Styleguide 0.3.1
 */
 legend
 {
@@ -116,7 +121,7 @@ The label represents a caption in a user interface. The caption can be associate
 Markup:
 <label for="">Label</label>
 
-Styleguide 0.3.12
+Styleguide 0.3.2
 */
 label
 {
@@ -261,7 +266,7 @@ The textarea element represents a multiline plain text edit control for the elem
 Markup:
 <textarea cols="10" rows="10"></textarea>
 
-Styleguide 0.3.13
+Styleguide 0.3.3
 */
 textarea
 {
@@ -280,7 +285,7 @@ Range Input
 Markup:
 <input type="range" />
 
-Styleguide 0.3.14
+Styleguide 0.3.4
 */
 input[type="range"]
 {
@@ -446,7 +451,7 @@ Markup:
 	<option value="Other">Other</option>
 </select>
 
-Styleguide 0.3.15
+Styleguide 0.3.5
 */
 select
 {
@@ -592,7 +597,7 @@ Represents the completion progress of a task. Progress may be either indetermina
 Markup:
 <p>Progress: <progress> <span>0</span>% </progress> </p>
 
-Styleguide 0.3.16
+Styleguide 0.3.6
 */
 progress
 {
@@ -639,7 +644,7 @@ When the element is wider than it is tall(or square), the depiction is expected 
 Markup:
 Your score is: <meter> 2 out of 10 </meter>
 
-Styleguide 0.3.17
+Styleguide 0.3.7
 */
 meter
 {
@@ -724,7 +729,7 @@ Color Input
 Markup:
 <input type="color" name="" id="field-55bf60767b2fb" class="" placeholder="Color Placeholder (required)" aria-required="true" required>
 
-Styleguide 0.3.18
+Styleguide 0.3.8
 */
 input[type="color"]
 {
@@ -764,7 +769,7 @@ Markup:
 	<input type="submit" value="Submit">
 </form>
 
-Styleguide 0.0.x
+Styleguide 0.3.9
 */
 keygen
 {
