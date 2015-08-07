@@ -1,0 +1,210 @@
+/*
+Buttons
+
+Styleguide 0.12
+*/
+
+
+$btn-padding-vert:                      0.7em;
+$btn-padding-hor:                       1.5em;
+
+$btn-radius:                            0.7em;
+
+$btn-font-family:                       "";
+$btn-font-size:                         1em;
+$btn-line-height:                       1.5;
+
+$btn-font-color:                        #fff;
+$btn-bg-color:                          #b1db24;
+$btn-border:                            none;
+$btn-icon-color:                        $btn-font-color;
+
+$btn-font-color-hover:                  #fff;
+$btn-bg-color-hover:                    #0094ff;
+$btn-border-hover:                      none;
+$btn-icon-color-hover:                  $btn-font-color-hover;
+
+$btn-font-color-active:                 #00f;
+$btn-bg-color-active:                   #0094ff;
+$btn-border-active:                     none;
+$btn-icon-color-active:                 $btn-font-color-active;
+
+$btn-font-color-focus:                  $btn-font-color-hover;
+$btn-bg-color-focus:                    $btn-bg-color-hover;
+$btn-border-focus:                      $btn-border-hover;
+$btn-icon-color-focus:                  $btn-font-color-focus;
+
+//button margin right is used for left hand side icons.  It's used for right aligned icons on the margin-left property instead.
+$btn-icon-margin-inner:                 $btn-padding-hor/1.5;                       
+
+
+/*
+Basic Button
+
+Markup:
+<button class="btn">Click Button</button>
+<a class="btn">Click Anchor</a>
+<span class="btn">Click Span</span>
+
+Styleguide 0.12.1
+*/
+
+.btn {
+    display:                            inline-block;
+    border:                             $btn-border;
+    outline:                            none;
+    padding:                            $btn-padding-vert $btn-padding-hor;
+    margin-bottom:                      0;
+    position:                           relative;
+
+    color: #fff;
+    background-color:                   $btn-bg-color;
+
+    font-family:                        $btn-font-family;
+    font-size:                          $btn-font-size;
+    line-height:                        $btn-line-height;
+
+    -webkit-appearance:                 none;
+    -moz-appearance:                    none;
+    border-radius:                      $btn-radius;
+    white-space:                        nowrap;
+    cursor:                             pointer;
+    -moz-user-select:                   none;
+    -ms-user-select:                    none;
+    -webkit-user-select:                none;
+    user-select:                        none;
+}
+
+.btn:hover {
+    background-color:                   $btn-bg-color-hover;
+    color:                              $btn-font-color-hover;
+    text-decoration:                    none;
+}
+
+.btn:focus:not(:active) {                   
+    background-color:                   $btn-bg-color-focus;
+    color:                              $btn-font-color-focus;
+    text-decoration:                    none;
+}
+
+.btn:active {
+    background-color:                   $btn-bg-color-active;
+    color:                              $btn-font-color-active;
+    text-decoration:                    none;
+}
+
+
+
+/*
+Small Button
+
+Markup:
+<button class="btn btn--small">Click Button</button>
+<a class="btn btn--small">Click Anchor</a>
+<span class="btn btn--small">Click Span</span>
+
+Styleguide 0.12.2
+*/
+
+.btn--small {
+    font-size:                          0.8em;
+}
+
+/*
+Large Button
+
+Markup:
+<button class="btn btn--large">Click Button</button>
+<a class="btn btn--large">Click Anchor</a>
+<span class="btn btn--large">Click Span</span>
+
+Styleguide 0.12.3
+*/
+
+.btn--large {
+    font-size:                          1.2em;
+}
+
+/*
+Button with Icon
+
+Should you require an embedded SVG rather than a background image, a data-grunticon-embed attribute is required.  See example 3 below.  By default, the fill property for embedded icons will match $btn-font-color.  This can be changed appropriately.
+
+Markup:
+<button class="btn btn--icon"><span class="icon icon-icon"></span>Click Button</button>
+<a class="btn btn--icon"><span class="icon icon-icon"></span>Click Anchor</a>
+<span class="btn btn--icon"><span class="icon icon-icon" data-grunticon-embed></span>Click Span</span>
+
+Styleguide 0.12.4
+*/
+
+.btn--icon .icon {
+
+    fill:                               $btn-icon-color;
+
+    background-size:                    contain;
+    background-position:                center center;
+
+    float:left;
+
+    margin:                             -($btn-line-height/6)+em 0;
+    margin-right:                       $btn-icon-margin-inner;
+    position:relative;
+}
+
+.btn--icon:hover .icon {
+     fill:                               $btn-icon-color-hover;
+}
+
+.btn--icon:focus .icon {
+     fill:                               $btn-icon-color-focus;
+}
+
+.btn--icon:active .icon {
+     fill:                               $btn-icon-color-active;
+}
+
+/*
+Button with Icon - right
+
+Should you require an embedded SVG rather than a background image, a data-grunticon-embed attribute is required.  See example 3 below.  By default, the fill property for embedded icons will match $btn-font-color.  This can be changed appropriately.
+
+Markup:
+<button class="btn btn--icon btn--right"><span class="icon icon-icon"></span>Click Button</button>
+<a class="btn btn--icon btn--right"><span class="icon icon-icon"></span>Click Anchor</a>
+<span class="btn btn--icon btn--right"><span class="icon icon-icon" data-grunticon-embed></span>Click Span</span>
+
+Styleguide 0.12.5
+*/
+
+.btn--right .icon{
+    float:                              right;
+    margin-right:                       0;
+    margin-left:                        $btn-icon-margin-inner;
+}
+
+
+/*
+Icon
+
+Need to move this into another section
+
+Markup:
+<span class="icon icon-icon"></span>
+
+
+Styleguide 0.12.6
+*/
+
+
+.icon {
+    height:                             2em;
+    width:                              2em;
+    display:                            block;
+
+
+}
+
+.icon svg {
+    height:                             100%;
+}
