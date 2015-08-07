@@ -42,9 +42,9 @@ $btn-icon-margin-inner:                 $btn-padding-hor/1.5;
 Basic Button
 
 Markup:
-<button class="btn">Click Button</button>
-<a class="btn">Click Anchor</a>
-<span class="btn">Click Span</span>
+<button class="btn" tab-index="0">Click Button</button>
+<a class="btn" role="button" tab-index="0">Click Anchor</a>
+<span class="btn" role="button" tab-index="0">Click Span</span>
 
 Styleguide 0.12.1
 */
@@ -68,7 +68,7 @@ Styleguide 0.12.1
     -moz-appearance:                    none;
     border-radius:                      $btn-radius;
     white-space:                        nowrap;
-    cursor:                             pointer;
+    cursor:                             pointer;    
     -moz-user-select:                   none;
     -ms-user-select:                    none;
     -webkit-user-select:                none;
@@ -99,9 +99,9 @@ Styleguide 0.12.1
 Small Button
 
 Markup:
-<button class="btn btn--small">Click Button</button>
-<a class="btn btn--small">Click Anchor</a>
-<span class="btn btn--small">Click Span</span>
+<button class="btn btn--small" tab-index="0">Click Button</button>
+<a class="btn btn--small"role="button" tab-index="0">Click Anchor</a>
+<span class="btn btn--small" role="button" tab-index="0">Click Span</span>
 
 Styleguide 0.12.2
 */
@@ -114,9 +114,9 @@ Styleguide 0.12.2
 Large Button
 
 Markup:
-<button class="btn btn--large">Click Button</button>
-<a class="btn btn--large">Click Anchor</a>
-<span class="btn btn--large">Click Span</span>
+<button class="btn btn--large" tab-index="0">Click Button</button>
+<a class="btn btn--large" role="button" tab-index="0">Click Anchor</a>
+<span class="btn btn--large"role="button" tab-index="0">Click Span</span>
 
 Styleguide 0.12.3
 */
@@ -131,9 +131,9 @@ Button with Icon
 Should you require an embedded SVG rather than a background image, a data-grunticon-embed attribute is required.  See example 3 below.  By default, the fill property for embedded icons will match $btn-font-color.  This can be changed appropriately.
 
 Markup:
-<button class="btn btn--icon"><span class="icon icon-icon"></span>Click Button</button>
-<a class="btn btn--icon"><span class="icon icon-icon"></span>Click Anchor</a>
-<span class="btn btn--icon"><span class="icon icon-icon" data-grunticon-embed></span>Click Span</span>
+<button class="btn btn--icon" tab-index="0"><span class="icon icon-icon"></span>Click Button</button>
+<a class="btn btn--icon" role="button" tab-index="0"><span class="icon icon-icon"></span>Click Anchor</a>
+<span class="btn btn--icon" role="button" tab-index="0"><span class="icon icon-icon" data-grunticon-embed></span>Click Span</span>
 
 Styleguide 0.12.4
 */
@@ -170,9 +170,9 @@ Button with Icon - right
 Should you require an embedded SVG rather than a background image, a data-grunticon-embed attribute is required.  See example 3 below.  By default, the fill property for embedded icons will match $btn-font-color.  This can be changed appropriately.
 
 Markup:
-<button class="btn btn--icon btn--right"><span class="icon icon-icon"></span>Click Button</button>
-<a class="btn btn--icon btn--right"><span class="icon icon-icon"></span>Click Anchor</a>
-<span class="btn btn--icon btn--right"><span class="icon icon-icon" data-grunticon-embed></span>Click Span</span>
+<button class="btn btn--icon btn--right" tab-index="0"><span class="icon icon-icon"></span>Click Button</button>
+<a class="btn btn--icon btn--right" role="button" tab-index="0"><span class="icon icon-icon"></span>Click Anchor</a>
+<span class="btn btn--icon btn--right" role="button" tab-index="0"><span class="icon icon-icon" data-grunticon-embed></span>Click Span</span>
 
 Styleguide 0.12.5
 */
