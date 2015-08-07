@@ -14,6 +14,8 @@ $form-border-width: 1px !default;
 $form-border-style: solid !default;
 $form-border-color: #cfd0d2 !default;
 
+$form-label-width: 100% !default;
+
 $form-input-width: 100% !default;
 $form-input-bg-color: #e8eaeb !default;
 $form-input-padding: 8px 10px !default;
@@ -34,6 +36,8 @@ $form-button-hover-bg-color: $form-border-color !default;
 $form-button-hover-font-color: $form-font-color !default;
 
 $form-placeholder-colour: #7e7f80 !default;
+
+$form-error-text-color:#000000 !default;
 
 /*
 input,
@@ -183,14 +187,11 @@ Markup:
 		<legend>Login Details</legend>
 		<div class="formfield formfield__text">
 			<label for="user-name">Username:</label>
-			<input name="user-name" type="email" placeholder="Your username is your email address" required autofocus>
+			<input id="user-name" name="user-name" type="email" data-gtm="CATEGORY-ACTION-LABEL" required aria-required="true" />
 		</div>
 		<div class="formfield formfield__text">
 			<label for="password">Password:</label>
-			<input name="password" type="password" placeholder="6 digits, a combination of numbers and letters" required>
-		</div>
-		<div class="formfield formfield__btns">
-			<input name="login" type="submit" value="Login">
+			<input id="password" name="password" type="password" data-gtm="CATEGORY-ACTION-LABEL" required aria-required="false" />
 		</div>
 	</fieldset>
 </form>
@@ -225,7 +226,7 @@ The label represents a caption in a user interface. The caption can be associate
 Markup:
 <div class="formfield formfield__text">
 	<label for="username">Username:</label>
-	<input id="username" name="username" type="text">
+	<input id="username" name="username" type="text" data-gtm="CATEGORY-ACTION-LABEL" required aria-required="true" />
 </div>
 
 Styleguide 0.3.2
@@ -236,7 +237,9 @@ label {
     position: relative;
     vertical-align: middle;
     font-weight: 600;
+    display:block;
     color: $form-font-color;
+    width:$form-label-width;
 
     a {
         font-weight: bold;
@@ -256,7 +259,7 @@ Text fields allow user input.
 Markup:
 <div class="formfield formfield__text">
   <label for="name">Name</label>
-  <input id="name" type="text" class="validate">
+  <input id="name" type="text" class="validate" data-gtm="CATEGORY-ACTION-LABEL" required aria-required="true" />
 </div>
 
 Styleguide 0.3.3
@@ -270,6 +273,7 @@ input {
     font-size: inherit;
     line-height: inherit;
     width: $form-input-width;
+    box-sizing:border-box;
     padding: $form-input-padding;
     border-radius: $form-border-radius;
     background-color: $form-input-bg-color;
@@ -308,7 +312,7 @@ The textarea element represents a multiline plain text edit control for the elem
 Markup:
 <div class="formfield formfield__textarea">
 	<label for="textarea">Address</label>
-	<textarea id="textarea" cols="10" rows="10"></textarea>
+	<textarea id="textarea" cols="10" rows="10" data-gtm="CATEGORY-ACTION-LABEL" aria-required="true"></textarea>
 </div>
 
 Styleguide 0.3.4
@@ -318,6 +322,8 @@ $cursor-disabled				:not-allowed;
 
 textarea {
     outline: none;
+    width: $form-input-width;
+    box-sizing:border-box;
     color: $form-font-color;
     vertical-align: top;
 	font-family					:inherit;
@@ -371,7 +377,7 @@ Used to style the range input element
 Markup:
 <div class="formfield formfield__range">
 	<label for="range">Range</label>
-	<input id="range" type="range" />
+	<input id="range" type="range" data-gtm="CATEGORY-ACTION-LABEL" required aria-required="true" />
 </div>
 
 Styleguide 0.3.3.4
@@ -494,7 +500,7 @@ Used to style the date input element
 Markup:
 <div class="formfield formfield__date">
 	<label for="datepicker">Date</label>
-	<input id="datepicker" type="date" />
+	<input id="datepicker" type="date" data-gtm="CATEGORY-ACTION-LABEL" required aria-required="true" />
 </div>
 
 Styleguide 0.3.3.5
@@ -530,7 +536,7 @@ If you want to style an input button with a path input.
 Markup:
 <div class="formfield formfield__file">
 	<label for="file">File:</label>
-	<input id="file" type="file" />
+	<input id="file" type="file" data-gtm="CATEGORY-ACTION-LABEL" required aria-required="true" />
 </div>
 
 
@@ -551,7 +557,7 @@ This input is used for search fields
 Markup:
 <div class="formfield formfield__search">
 	<label for="search">Search box:</label>
-	<input id="search" type="search" />
+	<input id="search" type="search" data-gtm="CATEGORY-ACTION-LABEL" required aria-required="true" />
 </div>
 
 Styleguide 0.3.3.2
@@ -590,7 +596,7 @@ The select element represents a control for selecting amongst a set of options.
 Markup:
 <div class="formfield formfield__select">
 	<label for="title">Title</label>
-	<select id="title" name="title">
+	<select id="title" name="title" data-gtm="CATEGORY-ACTION-LABEL" aria-required="true" >
 		<option value="" selected>Please choose</option>
 		<option value="Mr">Mr</option>
 		<option value="Miss">Miss</option>
@@ -607,6 +613,8 @@ select {
     outline: none;
     color: $form-font-color;
     vertical-align: top;
+    width: $form-input-width;
+    box-sizing:border-box;
 
     @if $form-allow-vendor-styling == false {
         -webkit-appearance: none;
@@ -693,7 +701,7 @@ button {
 /*
 //progress
 
-//Represents the completion progress of a task. Progress may be either indeterminate â€” meaning it is unclear how much work remains before the task is complete (e.g., the task is waiting for a response from a remote host) â€” or a numeric value between 0 and a given maximum, explicitly specifying //the fraction of work that has so far been completed.
+//Represents the completion progress of a task. Progress may be either indeterminate â€" meaning it is unclear how much work remains before the task is complete (e.g., the task is waiting for a response from a remote host) â€" or a numeric value between 0 and a given maximum, explicitly specifying //the fraction of work that has so far been completed.
 
 //Markup:
 //<p>Progress: <progress> <span>0</span>% </progress> </p>
@@ -741,7 +749,7 @@ Used to style the color input element
 Markup:
 <div class="formfield formfield__color">
 	<label for="color">Color</label>
-	<input id="color" type="color">
+	<input id="color" type="color" data-gtm="CATEGORY-ACTION-LABEL" required aria-required="true" />
 </div>
 
 Styleguide 0.3.3.3
@@ -760,7 +768,7 @@ The optional for attribute allows an explicit relationship to be made between th
 
 Markup:
 <label for="flying">Flying Skill Level</label>
-<input name="flying-level" id="flying" type="range" min="0" max="250">
+<input name="flying-level" id="flying" type="range" min="0" max="250" data-gtm="CATEGORY-ACTION-LABEL" required aria-required="true" />
 <output for="flying" onforminput="value = flying.valueAsNumber">0</output>
 
 
@@ -777,19 +785,19 @@ Markup:
 <div class="formfield">
 	<label for="test1">Radio group label</label>
 	<div class="formfield formfield__radio">
-	 	<input name="group1" type="radio" id="test1" />
+	 	<input name="group1" type="radio" id="test1" data-gtm="CATEGORY-ACTION-LABEL" />
 	 	<label for="test1">Red</label>
 	</div>
 	<div class="formfield formfield__radio">
-	  	<input name="group1" type="radio" id="test2" />
+	  	<input name="group1" type="radio" id="test2" data-gtm="CATEGORY-ACTION-LABEL" />
 	  	<label for="test2">Yellow</label>
 	</div>
 	<div class="formfield formfield__radio">
-	  	<input name="group1" type="radio" id="test3"  />
+	  	<input name="group1" type="radio" id="test3" data-gtm="CATEGORY-ACTION-LABEL" />
 	  	<label for="test3">Green</label>
 	</div>
 	<div class="formfield formfield__radio">
-	    <input name="group1" type="radio" id="test4" disabled="disabled" />
+	    <input name="group1" type="radio" id="test4" data-gtm="CATEGORY-ACTION-LABEL" disabled="disabled" />
 	    <label for="test4">Brown</label>
 	</div>
 </div>
@@ -837,19 +845,19 @@ Markup:
 <div class="formfield">
 	<label for="test5">Checkbox group label</label>
 	<div class="formfield formfield__checkbox">
-		<input type="checkbox" id="test5" />
+		<input type="checkbox" id="test5" data-gtm="CATEGORY-ACTION-LABEL" />
 		<label for="test5">Red</label>
 	</div>
 	<div class="formfield formfield__checkbox">
-		<input type="checkbox" id="test6" />
+		<input type="checkbox" id="test6" data-gtm="CATEGORY-ACTION-LABEL" />
 		<label for="test6">Yellow</label>
 	</div>
 	<div class="formfield formfield__checkbox">
-		<input type="checkbox" id="test7" />
+		<input type="checkbox" id="test7" data-gtm="CATEGORY-ACTION-LABEL" />
 		<label for="test7">Green</label>
 	</div>
 	<div class="formfield formfield__checkbox">
-		<input type="checkbox" id="test8" />
+		<input type="checkbox" id="test8" data-gtm="CATEGORY-ACTION-LABEL" />
 		<label for="test8">Brown</label>
 	</div>
 </div>
@@ -885,5 +893,76 @@ input[type="checkbox"]
 
     &:focus {
         outline: 0;
+    }
+}
+
+/*
+Buttons
+
+The legend element represents a caption for the rest of the contents of the legend element's parent fieldset element, if any.
+
+Markup:
+<div class="formfield formfield__btns">
+	<input name="submit" type="submit" value="submit"/>
+</div>
+
+Styleguide 0.3.8
+*/
+
+input[type=submit]{
+    width:auto;
+}
+
+
+
+
+
+
+
+/*
+Error Messages
+
+Shows the user messages to alert them to the status of the input field.
+
+Markup:
+<div class="formfield formfield__text formfield__error formfield__error--warning">
+  <label for="name">Name</label>
+  <input id="name" type="text" class="validate" data-gtm="CATEGORY-ACTION-LABEL" required aria-required="true" />
+</div>
+<div class="formfield formfield__text formfield__error formfield__error--success">
+  <label for="name">Name</label>
+  <input id="name" type="text" class="validate" data-gtm="CATEGORY-ACTION-LABEL" required aria-required="true" />
+</div>
+<div class="formfield formfield__text formfield__error formfield__error--error">
+  <label for="name">Name</label>
+  <input id="name" type="text" class="validate" data-gtm="CATEGORY-ACTION-LABEL" required aria-required="true" />
+</div>
+<div class="formfield formfield__text formfield__error formfield__error--info">
+  <label for="name">Name</label>
+  <input id="name" type="text" class="validate" data-gtm="CATEGORY-ACTION-LABEL" required aria-required="true" />
+</div>
+
+Styleguide 0.3.9
+*/
+
+.formfield__error{
+    margin: 10px 0px;
+    padding:12px;
+    color:$form-error-text-color;
+    
+    &.formfield__error--warning{
+        background-color: $clr-warning;
+    }
+    
+    &.formfield__error--success{
+        background-color: $clr-success;
+    }
+    
+    &.formfield__error--error{
+        background-color: $clr-error;
+    }
+    
+    &.formfield__error--info{
+        background-color: $clr-info
     }
 }
