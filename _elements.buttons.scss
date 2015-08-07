@@ -3,30 +3,31 @@ Buttons
 
 Styleguide 0.12
 */
+$btn-size-small:                        0.85em;
+$btn-size-large:                        1.2em;
 
+$btn-padding-vert:                      0.5em;
+$btn-padding-hor:                       1em;
 
-$btn-padding-vert:                      0.7em;
-$btn-padding-hor:                       1.5em;
-
-$btn-radius:                            0.7em;
+$btn-radius:                            100%;
 
 $btn-font-family:                       "";
 $btn-font-size:                         1em;
-$btn-line-height:                       1.5;
+$btn-line-height:                       1.8;
 
-$btn-font-color:                        #fff;
-$btn-bg-color:                          #b1db24;
-$btn-border:                            none;
+$btn-font-color:                        #F2AE72;
+$btn-bg-color:                          #8C4646;
+$btn-border:                            1px solid #F2AE72;
 $btn-icon-color:                        $btn-font-color;
 
-$btn-font-color-hover:                  #fff;
-$btn-bg-color-hover:                    #0094ff;
-$btn-border-hover:                      none;
+$btn-font-color-hover:                  #8C4646;
+$btn-bg-color-hover:                    #F2AE72;
+$btn-border-hover:                      1px solid #8C4646;
 $btn-icon-color-hover:                  $btn-font-color-hover;
 
-$btn-font-color-active:                 #00f;
-$btn-bg-color-active:                   #0094ff;
-$btn-border-active:                     none;
+$btn-font-color-active:                 #8C4646;
+$btn-bg-color-active:                   #F2E394;
+$btn-border-active:                     1px solid #8C4646;
 $btn-icon-color-active:                 $btn-font-color-active;
 
 $btn-font-color-focus:                  $btn-font-color-hover;
@@ -36,6 +37,11 @@ $btn-icon-color-focus:                  $btn-font-color-focus;
 
 //button margin right is used for left hand side icons.  It's used for right aligned icons on the margin-left property instead.
 $btn-icon-margin-inner:                 $btn-padding-hor/1.5;                       
+
+$btn-icon-size:                         2em;
+
+//this variable is added to both sides of the button and to the central spacing between button and text
+$btn-padding-w-icon:                    0.5em;
 
 
 /*
@@ -56,8 +62,9 @@ Styleguide 0.12.1
     padding:                            $btn-padding-vert $btn-padding-hor;
     margin-bottom:                      0;
     position:                           relative;
+    box-sizing:                         border-box;             
 
-    color: #fff;
+    color:                              $btn-font-color;
     background-color:                   $btn-bg-color;
 
     font-family:                        $btn-font-family;
@@ -73,24 +80,28 @@ Styleguide 0.12.1
     -ms-user-select:                    none;
     -webkit-user-select:                none;
     user-select:                        none;
+
 }
 
 .btn:hover {
     background-color:                   $btn-bg-color-hover;
     color:                              $btn-font-color-hover;
     text-decoration:                    none;
+    border:                             $btn-border-hover;
 }
 
-.btn:focus:not(:active) {                   
+.btn:focus {                   
     background-color:                   $btn-bg-color-focus;
     color:                              $btn-font-color-focus;
     text-decoration:                    none;
+    border:                             $btn-border-focus;
 }
 
 .btn:active {
     background-color:                   $btn-bg-color-active;
     color:                              $btn-font-color-active;
     text-decoration:                    none;
+    border:                             $btn-border-active;
 }
 
 
@@ -107,7 +118,7 @@ Styleguide 0.12.2
 */
 
 .btn--small {
-    font-size:                          0.8em;
+    font-size:                          $btn-size-small;
 }
 
 /*
@@ -122,7 +133,7 @@ Styleguide 0.12.3
 */
 
 .btn--large {
-    font-size:                          1.2em;
+    font-size:                          $btn-size-large;
 }
 
 /*
@@ -138,18 +149,25 @@ Markup:
 Styleguide 0.12.4
 */
 
+.btn--icon {
+    padding:                            $btn-padding-vert $btn-padding-w-icon $btn-padding-vert $btn-padding-w-icon*2+$btn-icon-size;
+}
+
 .btn--icon .icon {
+    height:                             $btn-icon-size;      
+    width:                              $btn-icon-size; 
 
-    fill:                               $btn-icon-color;
+    top:                                50%;
 
+    position:                           absolute;
+
+    transform:                          translateY(-50%);
+    left:                               $btn-padding-w-icon;
     background-size:                    contain;
     background-position:                center center;
 
-    float:left;
 
-    margin:                             -($btn-line-height/6)+em 0;
-    margin-right:                       $btn-icon-margin-inner;
-    position:relative;
+    fill:                               $btn-icon-color;
 }
 
 .btn--icon:hover .icon {
@@ -173,14 +191,20 @@ Markup:
 <button class="btn btn--icon btn--right" tab-index="0"><span class="icon icon-icon"></span>Click Button</button>
 <a class="btn btn--icon btn--right" role="button" tab-index="0"><span class="icon icon-icon"></span>Click Anchor</a>
 <span class="btn btn--icon btn--right" role="button" tab-index="0"><span class="icon icon-icon" data-grunticon-embed></span>Click Span</span>
+<span class="btn btn--icon btn--right btn--small" role="button" tab-index="0"><span class="icon icon-icon" data-grunticon-embed></span>Click Span</span>
+<span class="btn btn--icon btn--right btn--large" role="button" tab-index="0"><span class="icon icon-icon" data-grunticon-embed></span>Click Span</span>
 
 Styleguide 0.12.5
 */
 
-.btn--right .icon{
-    float:                              right;
-    margin-right:                       0;
-    margin-left:                        $btn-icon-margin-inner;
+.btn--right {
+    padding:                            $btn-padding-vert $btn-padding-w-icon*2+$btn-icon-size $btn-padding-vert $btn-padding-w-icon;
+}
+
+.btn--right .icon {
+    left:                               auto;
+    right:                              $btn-padding-w-icon;
+    transform:                          translateY(-50%);
 }
 
 
@@ -198,9 +222,9 @@ Styleguide 0.12.6
 
 
 .icon {
-    height:                             2em;
-    width:                              2em;
+
     display:                            block;
+
 
 
 }
