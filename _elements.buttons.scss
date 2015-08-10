@@ -9,7 +9,7 @@ $btn-size-large:                        1.2em;
 $btn-padding-vert:                      0.5em;
 $btn-padding-hor:                       1em;
 
-$btn-radius:                            100%;
+$btn-radius:                            1em;
 
 $btn-font-family:                       "";
 $btn-font-size:                         1em;
@@ -34,14 +34,15 @@ $btn-font-color-focus:                  $btn-font-color-hover;
 $btn-bg-color-focus:                    $btn-bg-color-hover;
 $btn-border-focus:                      $btn-border-hover;
 $btn-icon-color-focus:                  $btn-font-color-focus;
+     
+$btn-icon-padding-left:                 3em;
+$btn-icon-padding-right:                0.7em;   
 
-//button margin right is used for left hand side icons.  It's used for right aligned icons on the margin-left property instead.
-$btn-icon-margin-inner:                 $btn-padding-hor/1.5;                       
+$btn-icon-left:                         0.5em;         
 
 $btn-icon-size:                         2em;
 
-//this variable is added to both sides of the button and to the central spacing between button and text
-$btn-padding-w-icon:                    0.5em;
+
 
 
 /*
@@ -150,7 +151,7 @@ Styleguide 0.12.4
 */
 
 .btn--icon {
-    padding:                            $btn-padding-vert $btn-padding-w-icon $btn-padding-vert $btn-padding-w-icon*2+$btn-icon-size;
+    padding:                            $btn-padding-vert $btn-icon-padding-right $btn-padding-vert $btn-icon-padding-left;
 }
 
 .btn--icon .icon {
@@ -158,11 +159,10 @@ Styleguide 0.12.4
     width:                              $btn-icon-size; 
 
     top:                                50%;
-
+    left:                               $btn-icon-left;
     position:                           absolute;
 
     transform:                          translateY(-50%);
-    left:                               $btn-padding-w-icon;
     background-size:                    contain;
     background-position:                center center;
 
@@ -198,12 +198,12 @@ Styleguide 0.12.5
 */
 
 .btn--right {
-    padding:                            $btn-padding-vert $btn-padding-w-icon*2+$btn-icon-size $btn-padding-vert $btn-padding-w-icon;
+    padding:                            $btn-padding-vert $btn-icon-padding-left $btn-padding-vert $btn-icon-padding-right;
 }
 
 .btn--right .icon {
     left:                               auto;
-    right:                              $btn-padding-w-icon;
+    right:                              $btn-icon-left;
     transform:                          translateY(-50%);
 }
 
@@ -215,7 +215,7 @@ Need to move this into another section
 
 Markup:
 <span class="icon icon-icon"></span>
-
+ 
 
 Styleguide 0.12.6
 */
@@ -224,7 +224,8 @@ Styleguide 0.12.6
 .icon {
 
     display:                            block;
-
+    width:2em;
+    height:2em;
 
 
 }
