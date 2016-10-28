@@ -33,7 +33,7 @@ a
 
 	&:focus
 	{
-		@extend %tab-focus;
+		@extend %tab-focus !optional;
 	}
 
 	&:before,
